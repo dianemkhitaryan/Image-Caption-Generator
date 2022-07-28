@@ -1,1 +1,5 @@
-__pycache__
+__pycache__/
+Flicker8k_Dataset/
+Models/
+temp/
+.vscode/

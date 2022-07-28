@@ -1,7 +1,7 @@
 import re
 from flask import Flask
 from flask import request, json
-import inference 
+import inference
 app = Flask(__name__)
 
 @app.route("/Submit", methods=["GET"])
