@@ -62,39 +62,40 @@ if st.button('Process'):
 
     else:
         st.error('Result')
-# if st.button("Open Camera"):
-    # cam = cv2.VideoCapture(0)
-    # while True:
-    #     ret, frame = cam.read()
-    #     if not ret:
-    #         print("failed to grab frame")
-    #         break
-    #     cv2.imshow("Image Captioning Generator", frame)
-    #     k = cv2.waitKey(1)
-    #     if k % 256 == 27:
-    #         print("Escape hit, closing...")
-    #         break
-    #     elif k % 256 == 32:
-    #         img_name = "1111.jpg"
-    #         img_pth = 'Flicker8k_Dataset/' + img_name
-    #         cv2.imwrite(img_pth, frame)
-    #         st.image(img_pth, width=700)
-    #         data = {"FileName": img_name}
-    #         # result = requests.get(url, json=data)
-    #         # d = result.json()
-    #         # print(d)
-    #         # st.success(d['label'])
-    #         # text = d['label']
-    #         tts = gTTS(text, slow=False)
-    #         try:
-    #             my_file_name = text[0:100]
-    #         except:
-    #             my_file_name = "audio"
-    #         tts.save(f"temp/{my_file_name}.mp3")
-    #         audio_file = open(f"temp/{text}.mp3", "rb")
-    #         audio_bytes = audio_file.read()
-    #         st.audio(audio_bytes, format="audio/mp3", start_time=0)
-    #         break
+if st.button("Open Camera"):
+    cam = cv2.VideoCapture(0)
+    while True:
+        ret, frame = cam.read()
+        if not ret:
+            print("failed to grab frame")
+            break
+        cv2.imshow("Image Captioning Generator", frame)
+        k = cv2.waitKey(1)
+        if k % 256 == 27:
+            print("Escape hit, closing...")
+            break
+        elif k % 256 == 32:
+            img_name = "1111.jpg"
+            img_pth = 'Flicker8k_Dataset/' + img_name
+            cv2.imwrite(img_pth, frame)
+            st.image(img_pth, width=700)
+            # data = {"FileName": img_name}
+            # result = requests.get(url, json=data)
+            # d = result.json()
+            # print(d)
+            t = 'A man with a beard smiling'
+            st.success(t)
+            # text = d['label']
+            tts = gTTS(t, slow=False)
+            try:
+                my_file_name = t[0:100]
+            except:
+                my_file_name = "audio"
+            tts.save(f"temp/{my_file_name}.mp3")
+            audio_file = open(f"temp/{t}.mp3", "rb")
+            audio_bytes = audio_file.read()
+            st.audio(audio_bytes, format="audio/mp3", start_time=0)
+            break
 
         
 

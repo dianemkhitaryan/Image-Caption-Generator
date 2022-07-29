@@ -14,7 +14,7 @@ WORKING_DIR = 'Models'
 
 # load vgg16 model
 def Load_model():
-    model = load_model('Models/best_model.h5')
+    model = load_model('Models/best_model2.h5')
     return model
 
 #extract features from image
